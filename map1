@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Map 1</title>
+      <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+ <!--<link rel="stylesheet" type="text/css" href="style.css">-->
+    <!-- <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script> -->
+
+    <!-- NEW SCRIPT-->
+    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+            integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+            crossorigin=""></script>
+</head>
+
+   <body>
+      <!--<div style=" background:Cornsilk; border:1px solid green; padding:2px"> -->
+      <div id=idS>
+     <a href="D:\1_4_k_ves_sem\web\4_ub\index.html">Главная</a> 
+      </div>
+           <p></p>
+         <!--<div id=idS2>   -->
+      <div id = "map"></div>
+      <!--<div id = "map" style = "background:Cornsilk; border:1px solid green; padding:2px; width: 100%; height: 750px;"></div>-->
+      <!--<div id = "map" ></div>-->
+          <!--</div>-->
+      <script>
+          // Creating map options
+          var mapOptions = {
+              center: [51.67, 39.18],
+              zoom: 7
+          }
+
+          var map = new L.map('map', mapOptions);
+
+          var layer = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
+
+          map.addLayer(layer);
+          
+          
+          // NEW PIECE 
+
+          var myJSONlayer = {
+              "type": "Feature",
+              "properties": { "id": 1, "Name": "example"},
+              "geometry": {
+                  "type": "Polygon",
+                  "coordinates": [[
+                      [37.83,52.62],
+                      [37.70,52.62],
+                      [37.70,49.37],
+                      [37.83,49.37]]
+                    ]
+              }
+             
+          };
+           var myJSONlayer2 = {
+              "type": "Feature",
+              "properties": { "id": 1, "Name": "example"},
+              "geometry": {
+                  "type": "Polygon",
+                  "coordinates":  [[
+                      [37.83,52.62],
+                      [43.17,52.62],
+                      [43.17,52.55],
+                      [37.83,52.55]]]
+              }
+             
+          };
+           var myJSONlayer3 = {
+              "type": "Feature",
+              "properties": { "id": 1, "Name": "example"},
+              "geometry": {
+                  "type": "Polygon",
+                  "coordinates":  [[
+                      [43.04,52.62],
+                      [43.17,52.62],
+                      [43.17,49.37],
+                      [43.04,49.37]]]
+              }
+             
+          };
+          var myJSONlayer4 = {
+              "type": "Feature",
+              "properties": { "id": 1, "Name": "example"},
+              
+              "geometry": {
+                  "type": "Polygon",
+                  "coordinates": [[
+                      [37.83,49.44],
+                      [43.17,49.44],
+                      [43.17,49.37],
+                      [37.83,49.37]]]
+              }
+          };
+
+          var mylayer = new L.geoJSON(myJSONlayer);
+           var mylayer2 = new L.geoJSON(myJSONlayer2);
+            var mylayer3 = new L.geoJSON(myJSONlayer3);
+             var mylayer4 = new L.geoJSON(myJSONlayer4);
+          // var mylayer2 = new L.geoJSON(myJSONlayer2);
+          mylayer.addTo(map);
+          mylayer2.addTo(map);
+          mylayer3.addTo(map);
+          mylayer4.addTo(map);
+          // mylayer2.addTo(map);
+          
+          
+          
+          
+          //var layer2 = new L.TileLayer('D:\1_4_k_ves_sem\web\2\zapovedniku_pl.geojson');
+          // L.geoJSON(geojsonFeature).addTo(map);
+          ///маркеры для двух заповедников костенки дивногорье
+          //kostenku
+          // Creating a marker
+          // Icon options
+          var iconOptions = {
+              //iconUrl: 'D:\1_4_k_ves_sem\web\2\icon.png',
+              iconUrl: 'https://img2.freepng.ru/20180511/jzq/kisspng-art-museum-computer-icons-monument-5af52d11b291c8.3763626715260172977314.jpg',
+
+              iconSize: [15, 15]
+          }
+       
+          
+          
+          // Creating a custom icon
+          var customIcon = L.icon(iconOptions);
+          var markerOptions = {
+              icon: customIcon
+          }
+          var markerk = new L.Marker([51.38, 39.05], markerOptions);
+
+          markerk.bindPopup('музей заповедник Костенки').openPopup();
+
+          markerk.addTo(map);
+          ///divnogor
+          var markerd = new L.Marker([50.95, 39.28], markerOptions);
+
+          markerd.bindPopup('музей заповедник Дивногорье').openPopup();
+
+          markerd.addTo(map);
+          ///ворон
+          var markerv = new L.Marker([51.95, 39.50], markerOptions);
+
+          markerv.bindPopup('Воронежский государственный природный биосферный заповедник им. Пескова').openPopup();
+
+          markerv.addTo(map);
+           ///Хоперский 
+          var markerx = new L.Marker([51.18, 41.72], markerOptions);
+
+          markerx.bindPopup('Хоперский государственный природный заповедник').openPopup();
+
+          markerx.addTo(map);
+
+   
+
+      </script>
+   </body>
+   
+</html>
