@@ -1,9 +1,10 @@
-<html> 
-<head> 
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
 <title> Map 2 </title>
 <link rel="stylesheet" type="text/css" href="style.css">
-<script src="http://openlayers.org/api/OpenLayers.js"></script>
+<script src="https://openlayers.org/api/OpenLayers.js"></script>
 
 <!--<style type="text/css">
 /*	html { height: 100% }*/
@@ -19,28 +20,28 @@ var map;
 
   function initialize() {
      map = new OpenLayers.Map("map_canvas");
-     var mapbase = new OpenLayers.Layer.WMS('OpenLayers WMS', 
-       'http://vmap0.tiles.osgeo.org/wms/vmap0', 
+     var mapbase = new OpenLayers.Layer.WMS('OpenLayers WMS',
+       'https://vmap0.tiles.osgeo.org/wms/vmap0',
        { layers: 'basic,coastline_01,depthcontour,priroad,secroad,clabel'});
-       
+
        //доб слои wms
          var nexrad = new OpenLayers.Layer.WMS("Nexrad",
-       "http://mesonet.agron.iastate.edu/cgi-bin/wms/nexrad/n0r-t.cgi?",
-       {   layers:"nexrad-n0r-wmst",Time: '2011-12-25T09:45:00Z', 
+       "https://mesonet.agron.iastate.edu/cgi-bin/wms/nexrad/n0r-t.cgi?",
+       {   layers:"nexrad-n0r-wmst",Time: '2011-12-25T09:45:00Z',
            transparent:true
         }, {isBaseLayer: false, opacity:.5});
        //
-       
+
       map.addLayers([nexrad, mapbase]);
      // map.addLayer(mapbase);
-     map.setCenter(new OpenLayers.LonLat(40.02,51.08), 8); 
+     map.setCenter(new OpenLayers.LonLat(40.02,51.08), 8);
  }
 </script>
 </head>
 <body onload="initialize()">
       <!--<div style=" background:Cornsilk; border:1px solid green; padding:2px"> -->
       <div id=idS>
-      <a href="D:\1_4_k_ves_sem\web\4_ub\index.html">Главная</a> 
+      <a href="index.html">Главная</a>
       </div>
            <p></p>
 <div id=idS>
