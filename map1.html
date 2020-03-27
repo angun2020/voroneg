@@ -1,46 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+<!--<html lang="en">-->
 <head>
     <meta charset="UTF-8">
-    <title>Map 1</title>
-      <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Карта 1</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" href="https://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
- <!--<link rel="stylesheet" type="text/css" href="style.css">-->
-    <!-- <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script> -->
-
-    <!-- NEW SCRIPT-->
     <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
             integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
             crossorigin=""></script>
 </head>
 
    <body>
-      <!--<div style=" background:Cornsilk; border:1px solid green; padding:2px"> -->
-       <div id=idS>
+       <div id="idS">
       <a href="index.html">Главная</a>
-      </div>
+       </div>
            <p></p>
-         <!--<div id=idS2>   -->
       <div id = "map"></div>
-      <!--<div id = "map" style = "background:Cornsilk; border:1px solid green; padding:2px; width: 100%; height: 750px;"></div>-->
-      <!--<div id = "map" ></div>-->
-          <!--</div>-->
-      <script>
+       <script>
           // Creating map options
           var mapOptions = {
               center: [51.67, 39.18],
               zoom: 7
           }
-
           var map = new L.map('map', mapOptions);
-
           var layer = new L.TileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
-
           map.addLayer(layer);
 
-
-          // NEW PIECE
-
+          // pamka
           var myJSONlayer = {
               "type": "Feature",
               "properties": { "id": 1, "Name": "example"},
@@ -96,23 +83,16 @@
           };
 
           var mylayer = new L.geoJSON(myJSONlayer);
-           var mylayer2 = new L.geoJSON(myJSONlayer2);
-            var mylayer3 = new L.geoJSON(myJSONlayer3);
-             var mylayer4 = new L.geoJSON(myJSONlayer4);
-          // var mylayer2 = new L.geoJSON(myJSONlayer2);
+          var mylayer2 = new L.geoJSON(myJSONlayer2);
+          var mylayer3 = new L.geoJSON(myJSONlayer3);
+          var mylayer4 = new L.geoJSON(myJSONlayer4);
+
           mylayer.addTo(map);
           mylayer2.addTo(map);
           mylayer3.addTo(map);
           mylayer4.addTo(map);
-          // mylayer2.addTo(map);
 
 
-
-
-          //var layer2 = new L.TileLayer('D:\1_4_k_ves_sem\web\2\zapovedniku_pl.geojson');
-          // L.geoJSON(geojsonFeature).addTo(map);
-          ///маркеры для двух заповедников костенки дивногорье
-          //kostenku
           // Creating a marker
           // Icon options
           var iconOptions = {
@@ -152,9 +132,6 @@
           markerx.bindPopup('Хоперский государственный природный заповедник').openPopup();
 
           markerx.addTo(map);
-
-
-
       </script>
    </body>
 
